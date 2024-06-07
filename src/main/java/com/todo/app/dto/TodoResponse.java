@@ -1,5 +1,7 @@
 package com.todo.app.dto;
 
+import java.util.Date;
+
 import com.todo.app.model.Todo;
 
 public class TodoResponse {
@@ -8,13 +10,17 @@ public class TodoResponse {
 	private String title;
 	private String status;
 	private String details;
-	
-//	Todoオブジェクトから取ってくる。
+	private Date createdAt;
+	private Date updatedAt;
+
+	//	Todoオブジェクトから取ってくる。
 	public TodoResponse(Todo todo) {
 		this.id = todo.getId();
 		this.title = todo.getTitle();
 		this.status = todo.getStatus();
 		this.details = todo.getDetails();
+		this.createdAt = todo.getCreatedAt();
+		this.updatedAt = todo.getUpdatedAt();
 	}
 	
 	public Long getId() {
@@ -42,6 +48,20 @@ public class TodoResponse {
 		this.details = details;
 	}
 	
-	
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
 	
 }

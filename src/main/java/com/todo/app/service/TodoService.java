@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.todo.app.dto.TodoRequest;
 import com.todo.app.dto.TodoResponse;
+import com.todo.app.exception.TodoNotFoundException;
 import com.todo.app.mapper.TodoMapper;
 import com.todo.app.model.Todo;
 
@@ -20,6 +21,9 @@ public class TodoService {
 	
 	public TodoResponse getTodo(Long id) {
 		 Todo todo = todoMapper.findById(id);
+		 if(todo == null) {
+			 throw new TodoNotFoundException(id);
+		 }
 		 TodoResponse todoResponse = new TodoResponse(todo);
 		return todoResponse;
 	}
@@ -43,15 +47,21 @@ public class TodoService {
 	}
 	
 	public  TodoResponse updateTodo(Long id, TodoRequest todoRequest) {
-		Todo todo = new Todo();
+		 Todo todo = todoMapper.findById(id);
+		 if(todo == null) {
+			 throw new TodoNotFoundException(id);
+		 }
 		BeanUtils.copyProperties(todoRequest, todo);
-		todo.setId(id);
 		todoMapper.update(todo);
 		TodoResponse todoResponse = new TodoResponse(todo);
 		return todoResponse;
 	}
 	
 	public void deleteTodo(Long id) {
+		 Todo todo = todoMapper.findById(id);
+		 if(todo == null) {
+			 throw new TodoNotFoundException(id);
+		 }
 		 todoMapper.delete(id);
 	}
 	

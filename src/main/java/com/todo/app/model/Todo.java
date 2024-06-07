@@ -1,11 +1,15 @@
 package com.todo.app.model;
 
+import java.util.Date;
+
 public class Todo {
 	
 	private Long id;
 	private String title;
 	private String status;
 	private String details;
+	private Date createdAt;
+	private Date updatedAt;
 	
 	public Todo() {
 		// TODO 自動生成されたコンストラクター・スタブ
@@ -49,6 +53,20 @@ public class Todo {
 		this.details = details;
 	}
 
-	
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
 	
 }
