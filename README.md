@@ -1,4 +1,3 @@
-# todo_mybatis
 SwaggerのAPI仕様書を参考に以下のTodo ListのAPIを作成してください。  
 初級編で作成したAPIにDBとの連携を追加してください。  
 
@@ -30,3 +29,4 @@ Spring Bootを使用してRESTfulなTODO APIの構築
 ▼データベースとの連携に関する要件：  
 　済・MySQLまたはPostgreSQLをローカルにセットアップ  
 　済・MyBatisの設定とマッピングのためのXMLファイルを用意  
+
